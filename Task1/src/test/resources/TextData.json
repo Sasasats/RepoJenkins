@@ -1,0 +1,7 @@
+{
+  "EnglishCapitalLetters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "EnglishCommonLetters": "abcdefghijklmnopqrstuvwxyz",
+  "RussianLetters": "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+  "Numbers": "0123456789",
+  "AllSimbols": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+}
