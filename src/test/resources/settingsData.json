@@ -1,0 +1,7 @@
+{
+  "baseUri": "https://jsonplaceholder.typicode.com/",
+  "basePatchPosts": "/posts",
+  "basePatchUsers": "/users",
+  "notExistPostId": 150,
+  "emptyRequestBody": "{}"
+}
