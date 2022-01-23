@@ -4,6 +4,7 @@ import Models.UserModel.User;
 import Utils.*;
 
 import aquality.selenium.browser.AqualityServices;
+import aquality.selenium.core.logging.Logger;
 import aquality.selenium.core.utilities.ISettingsFile;
 import aquality.selenium.core.utilities.JsonSettingsFile;
 import org.testng.Assert;
@@ -18,11 +19,13 @@ public class TestTask3 {
 
     @Test
     public void testAPI() {
-        //1
+        Logger logger = AqualityServices.getLogger();
+
+        logger.info("Step1");
         AqualityServices.getLogger().info("Получение списка всех постов");
         Assert.assertTrue(SortUtils.isPostsSortedById(api.getPostList()));
 
-        //2
+        logger.info("Step2");
         AqualityServices.getLogger().info("Получение поста с id 99");
         Post expectedPost = JsonUtils.setPost("post99.json");
         Post actualPost = api.getPost(expectedPost.getId());
@@ -32,7 +35,7 @@ public class TestTask3 {
         Assert.assertFalse(actualPost.getTitle().isEmpty(), "title is empty");
         Assert.assertFalse(actualPost.getBody().isEmpty(), "body is empty");
 
-        //3
+        logger.info("Step3");
         AqualityServices.getLogger().info("Получение несуществующего поста с id 150");
         Assert.assertEquals(api.getNotValidPostAsString((int)settingsData.getValue("/notExistPostId")), settingsData.getValue("/emptyRequestBody"), "post not empty");
 
@@ -48,14 +51,14 @@ public class TestTask3 {
         Assert.assertEquals(actualPost.getUserId(), expectedPost.getUserId(), "userId not equals");
         Assert.assertFalse(("" + actualPost.getId()).isEmpty(), "id is empty");
 
-        //5
+        logger.info("Step4");
         AqualityServices.getLogger().info("Получение списка пользователей");
         List<User> userList = api.getUserList();
         User expectedUser = JsonUtils.setUser("user5.json");
         User actualUser = api.getUserFromList(userList, expectedUser.getId());
         Assert.assertEquals(actualUser, expectedUser, "Users not equals");
 
-        //6
+        logger.info("Step5");
         AqualityServices.getLogger().info("Получение пользователя c id 5");
         actualUser = api.getUser(expectedUser.getId());
         Assert.assertEquals(expectedUser, actualUser, "Users not equals");
